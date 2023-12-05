@@ -1,0 +1,1689 @@
+Dependency files: dep.txt
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_add_inbuf
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_close
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_flush
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_open
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_probe
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_remove
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_done
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_handle
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_work
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_send_frame
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_set_bdaddr_intel
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_set_bdaddr_zephyr
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_intel
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_realtek
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_zephyr
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_shutdown_generic
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_tx_done
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+./linux/virtio.h:24:19: error: field has incomplete type 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:24:9: note: forward declaration of 'struct list_head'
+struct list_head list;
+^
+./linux/virtio.h:34:12: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:26: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:34:12: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:36:5: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:39:11: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:25: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:39:11: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:41:4: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:44:15: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:29: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:44:15: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[], unsigned int num,
+^
+./linux/virtio.h:47:8: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:50:16: warning: declaration of 'struct scatterlist' will not be visible outside of this function [-Wvisibility]
+struct scatterlist *sgs[],
+^
+./linux/virtio.h:54:9: error: unknown type name 'gfp_t'
+gfp_t gfp);
+^
+./linux/virtio.h:56:1: error: unknown type name 'bool'
+bool virtqueue_kick(struct virtqueue *vq);
+^
+./linux/virtio.h:58:1: error: unknown type name 'bool'
+bool virtqueue_kick_prepare(struct virtqueue *vq);
+^
+./linux/virtio.h:60:1: error: unknown type name 'bool'
+bool virtqueue_notify(struct virtqueue *vq);
+^
+./linux/virtio.h:69:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb(struct virtqueue *vq);
+^
+./linux/virtio.h:73:1: error: unknown type name 'bool'
+bool virtqueue_poll(struct virtqueue *vq, unsigned);
+^
+./linux/virtio.h:75:1: error: unknown type name 'bool'
+bool virtqueue_enable_cb_delayed(struct virtqueue *vq);
+^
+./linux/virtio.h:81:1: error: unknown type name 'bool'
+bool virtqueue_is_broken(struct virtqueue *vq);
+^
+./linux/virtio.h:84:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_desc_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:85:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_avail_addr(struct virtqueue *vq);
+^
+./linux/virtio.h:86:1: error: unknown type name 'dma_addr_t'
+dma_addr_t virtqueue_get_used_addr(struct virtqueue *vq);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE]: virtio_bt.c [TIME]: 0.4976694583892822
+########################################
+
+[OVERALL TIME]: 0.501183032989502

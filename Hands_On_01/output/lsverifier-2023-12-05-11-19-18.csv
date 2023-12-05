@@ -1,0 +1,4 @@
+file_name,functionVerified,function_name,function_line,error
+ main_memory.c, data_race, increment_shared_counter , 10 ,W/W data race on c:@shared_counter
+ main_memory.c, deadlock, pthread_mutex_lock_check , 349 ,Deadlocked state in pthread_mutex_lock
+ main_memory.c, overflow, overflow , 35 ,arithmetic overflow on add
