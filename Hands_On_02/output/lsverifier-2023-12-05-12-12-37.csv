@@ -1,0 +1,3 @@
+file_name,functionVerified,function_name,function_line,error
+ cve-2021-3156.c, main, main , 193 ,dereference failure: array bounds violated
+ cve-2021-3156.c, get_user, strlen , 78 ,dereference failure: invalid pointer

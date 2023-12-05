@@ -1,0 +1,448 @@
+Dependency files: dep.txt
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_add_inbuf
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_close
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_flush
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_open
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_probe
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_remove
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_done
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_handle
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_work
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_send_frame
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_set_bdaddr_intel
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_set_bdaddr_zephyr
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_intel
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_realtek
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_zephyr
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_shutdown_generic
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_tx_done
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:4:10: error: 'linux/virtio.h' file not found with <angled> include; use "quotes" instead
+#include <linux/virtio.h>
+^~~~~~~~~~~~~~~~
+"linux/virtio.h"
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+uapi/linux/types.h:10:2: warning: "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders" [-W#warnings]
+#warning "Attempt to use kernel headers from user space, see https://kernelnewbies.org/KernelHeaders"
+^
+In file included from virtio_bt.c:4:
+In file included from ./linux/virtio.h:6:
+In file included from uapi/linux/types.h:14:
+In file included from uapi/linux/posix_types.h:5:
+uapi/linux/stddef.h:2:10: fatal error: 'linux/compiler_types.h' file not found
+#include <linux/compiler_types.h>
+^~~~~~~~~~~~~~~~~~~~~~~~
+PARSING ERROR
+
+########################################
+[FILE]: virtio_bt.c [TIME]: 0.49960756301879883
+########################################
+
+[OVERALL TIME]: 0.5029890537261963

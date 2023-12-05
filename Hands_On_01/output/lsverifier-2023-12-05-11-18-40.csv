@@ -1,0 +1,3 @@
+file_name,functionVerified,function_name,function_line,error
+ main.c, ptr_func, ptr_func , 32 ,dereference failure: NULL pointer
+ main.c, vector_func, vector_func , 51 ,array bounds violated: array `i' upper bound

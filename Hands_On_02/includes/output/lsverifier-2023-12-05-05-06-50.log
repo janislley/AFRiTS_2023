@@ -1,0 +1,3371 @@
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_add_inbuf
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_close
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_flush
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_open
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_probe
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_remove
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_done
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_handle
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_rx_work
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_send_frame
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_set_bdaddr_intel
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_set_bdaddr_zephyr
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_intel
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_realtek
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_setup_zephyr
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_shutdown_generic
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE] virtio_bt.c
+[ARGS] ['--unwind', '1', '--no-unwinding-assertions']
+[FUNCTION] virtbt_tx_done
+########################################
+
+ESBMC version 6.7.0 64-bit x86_64 linux
+file virtio_bt.c: Parsing
+virtio_bt.c:14:21: error: field has incomplete type 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:14:9: note: forward declaration of 'struct work_struct'
+struct work_struct rx;
+^
+virtio_bt.c:21:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:21:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:25:8: warning: implicit declaration of function 'alloc_skb' is invalid in C99 [-Wimplicit-function-declaration]
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:25:24: error: use of undeclared identifier 'GFP_KERNEL'
+skb = alloc_skb(1000, GFP_KERNEL);
+^
+virtio_bt.c:27:11: error: use of undeclared identifier 'ENOMEM'
+return -ENOMEM;
+^
+virtio_bt.c:29:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, 1000);
+^
+virtio_bt.c:29:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, 1000);
+~~~^
+virtio_bt.c:22:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:31:8: warning: implicit declaration of function 'virtqueue_add_inbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:31:44: error: use of undeclared identifier 'GFP_KERNEL'
+err = virtqueue_add_inbuf(vq, sg, 1, skb, GFP_KERNEL);
+^
+virtio_bt.c:33:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:42:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:42:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:45:11: error: use of undeclared identifier 'EIO'
+return -EIO;
+^
+virtio_bt.c:47:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_RX]);
+^
+virtio_bt.c:53:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:53:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:56:2: warning: implicit declaration of function 'cancel_work_sync' is invalid in C99 [-Wimplicit-function-declaration]
+cancel_work_sync(&vbt->rx);
+^
+virtio_bt.c:58:18: warning: implicit declaration of function 'ARRAY_SIZE' is invalid in C99 [-Wimplicit-function-declaration]
+for (i = 0; i < ARRAY_SIZE(vbt->vqs); i++) {
+^
+virtio_bt.c:62:17: warning: implicit declaration of function 'virtqueue_detach_unused_buf' is invalid in C99 [-Wimplicit-function-declaration]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^
+virtio_bt.c:62:15: warning: incompatible integer to pointer conversion assigning to 'struct sk_buff *' from 'int' [-Wint-conversion]
+while ((skb = virtqueue_detach_unused_buf(vq)))
+^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:63:4: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:74:59: warning: declaration of 'struct sk_buff' will not be visible outside of this function [-Wvisibility]
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:76:33: warning: implicit declaration of function 'hci_get_drvdata' is invalid in C99 [-Wimplicit-function-declaration]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^
+virtio_bt.c:76:27: warning: incompatible integer to pointer conversion initializing 'struct virtio_bluetooth *' with an expression of type 'int' [-Wint-conversion]
+struct virtio_bluetooth *vbt = hci_get_drvdata(hdev);
+^     ~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:77:23: error: array has incomplete element type 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:77:9: note: forward declaration of 'struct scatterlist'
+struct scatterlist sg[1];
+^
+virtio_bt.c:80:2: warning: implicitly declaring library function 'memcpy' with type 'void *(void *, const void *, unsigned long)' [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:2: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+virtio_bt.c:80:9: warning: implicit declaration of function 'skb_push' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:28: warning: implicit declaration of function 'hci_skb_pkt_type' is invalid in C99 [-Wimplicit-function-declaration]
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^
+virtio_bt.c:80:27: error: cannot take the address of an rvalue of type 'int'
+memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+^~~~~~~~~~~~~~~~~~~~~~
+virtio_bt.c:82:2: warning: implicit declaration of function 'sg_init_one' is invalid in C99 [-Wimplicit-function-declaration]
+sg_init_one(sg, skb->data, skb->len);
+^
+virtio_bt.c:82:21: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:82:32: error: incomplete definition of type 'struct sk_buff'
+sg_init_one(sg, skb->data, skb->len);
+~~~^
+virtio_bt.c:74:59: note: forward declaration of 'struct sk_buff'
+static int virtbt_send_frame(struct hci_dev *hdev, struct sk_buff *skb)
+^
+virtio_bt.c:83:8: warning: implicit declaration of function 'virtqueue_add_outbuf' is invalid in C99 [-Wimplicit-function-declaration]
+err = virtqueue_add_outbuf(vbt->vqs[VIRTBT_VQ_TX], sg, 1, skb,
+^
+virtio_bt.c:84:8: error: use of undeclared identifier 'GFP_KERNEL'
+GFP_KERNEL);
+^
+virtio_bt.c:86:3: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:90:2: warning: implicit declaration of function 'virtqueue_kick' is invalid in C99 [-Wimplicit-function-declaration]
+virtqueue_kick(vbt->vqs[VIRTBT_VQ_TX]);
+^
+virtio_bt.c:99:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:99:46: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc08, 0, NULL, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:100:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:101:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:103:2: warning: implicit declaration of function 'bt_dev_info' is invalid in C99 [-Wimplicit-function-declaration]
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+^
+virtio_bt.c:103:38: error: incomplete definition of type 'struct sk_buff'
+bt_dev_info(hdev, "%s", (char *)(skb->data + 1));
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:105:2: warning: implicit declaration of function 'hci_set_fw_info' is invalid in C99 [-Wimplicit-function-declaration]
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+^
+virtio_bt.c:105:33: error: incomplete definition of type 'struct sk_buff'
+hci_set_fw_info(hdev, "%s", skb->data + 1);
+~~~^
+virtio_bt.c:96:9: note: forward declaration of 'struct sk_buff'
+struct sk_buff *skb;
+^
+virtio_bt.c:107:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:112:15: error: unknown type name 'bdaddr_t'
+const bdaddr_t *bdaddr)
+^
+virtio_bt.c:117:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:117:48: error: use of undeclared identifier 'HCI_INIT_TIMEOUT'
+skb = __hci_cmd_sync(hdev, 0xfc06, 6, bdaddr, HCI_INIT_TIMEOUT);
+^
+virtio_bt.c:118:6: warning: implicit declaration of function 'IS_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+if (IS_ERR(skb))
+^
+virtio_bt.c:119:10: warning: implicit declaration of function 'PTR_ERR' is invalid in C99 [-Wimplicit-function-declaration]
+return PTR_ERR(skb);
+^
+virtio_bt.c:121:2: warning: implicit declaration of function 'kfree_skb' is invalid in C99 [-Wimplicit-function-declaration]
+kfree_skb(skb);
+^
+virtio_bt.c:130:8: warning: implicit declaration of function '__hci_cmd_sync' is invalid in C99 [-Wimplicit-function-declaration]
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+virtio_bt.c:130:40: error: use of undeclared identifier 'NULL'
+skb = __hci_cmd_sync(hdev, 0xfc05, 0, NULL, HCI_CMD_TIMEOUT);
+^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+PARSING ERROR
+
+########################################
+[FILE]: virtio_bt.c [TIME]: 0.4432547092437744
+########################################
+
+[OVERALL TIME]: 0.44724607467651367
